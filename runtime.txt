@@ -1,0 +1,567 @@
+# Telco Customer Churn Prediction System
+
+A complete **Machine Learning + Flask web application** for predicting whether a telecom customer is likely to **churn (leave the service)** based on customer demographics, subscription details, billing behavior, and service usage patterns.
+
+This project was developed as a **Final Year Machine Learning Project** and demonstrates the **full ML lifecycle**:
+
+* data preprocessing
+* feature engineering
+* model comparison
+* model evaluation
+* visualization
+* Flask deployment
+* business interpretation through feature importance
+
+---
+
+## Project Overview
+
+Customer churn is a major business problem in the telecom industry because losing customers directly impacts **revenue, customer retention, and acquisition cost**.
+
+This project predicts whether a customer is likely to churn using historical telecom customer data and provides a web-based interface where users can:
+
+* enter customer information
+* get churn prediction instantly
+* view churn probability
+* analyze dashboard charts
+* inspect model feature importance
+* review business risk interpretation and retention recommendations
+
+---
+
+## Key Features
+
+* **End-to-end machine learning pipeline**
+* **Multi-model comparison (Logistic Regression, Random Forest, XGBoost)**
+* **Automatic best model selection based on ROC-AUC**
+* **Flask web application**
+* **Customer churn prediction form**
+* **Prediction probability + risk level**
+* **EDA dashboard with charts**
+* **Model evaluation metrics**
+* **Feature importance analysis**
+* **Business-oriented result interpretation**
+* **Deployment-ready project structure**
+* **GitHub-ready clean codebase**
+
+---
+
+## Tech Stack
+
+### Machine Learning / Data Science
+
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* XGBoost
+* Matplotlib
+* Joblib
+
+### Web Development
+
+* Flask
+* HTML
+* CSS
+
+### Deployment
+
+* Gunicorn
+* Render / Railway / PythonAnywhere compatible
+
+---
+
+## Problem Statement
+
+Telecom companies often struggle with customer retention. Customers may leave due to:
+
+* expensive monthly charges
+* poor support services
+* contract type
+* payment behavior
+* internet service dissatisfaction
+* low long-term engagement
+
+This project helps identify **high-risk customers** so telecom businesses can take **preventive retention actions**.
+
+---
+
+## Dataset
+
+This project uses the **Telco Customer Churn Dataset**, which contains customer-related information such as:
+
+* gender
+* senior citizen status
+* partner / dependents
+* tenure
+* internet service
+* online security / backup / support
+* streaming services
+* contract type
+* billing preferences
+* monthly charges
+* total charges
+* churn label
+
+### Target Variable
+
+* **Churn = Yes** → Customer left
+* **Churn = No** → Customer stayed
+
+---
+
+## Project Structure
+
+```bash
+telco-churn-ml-flask-app/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+├── runtime.txt
+├── Procfile
+├── README.md
+├── .gitignore
+│
+├── artifacts/
+│   ├── model.pkl
+│   ├── metrics.json
+│   ├── model_comparison.csv
+│   ├── feature_importance.csv
+│   ├── X_test.csv
+│   ├── y_test.csv
+│   └── plots/
+│       ├── churn_distribution.png
+│       ├── contract_vs_churn.png
+│       ├── tenure_vs_churn.png
+│       ├── monthlycharges_vs_churn.png
+│       ├── confusion_matrix.png
+│       ├── roc_curve.png
+│       └── feature_importance.png
+│
+├── data/
+│   └── Telco-Customer-Churn.csv
+│
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   └── 02_model_experiments.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── preprocess.py
+│   ├── train.py
+│   ├── predict.py
+│   ├── plots.py
+│   └── utils.py
+│
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── result.html
+│   ├── dashboard.html
+│   └── feature_importance.html
+│
+└── static/
+    ├── css/
+    │   └── style.css
+    └── images/
+```
+
+---
+
+## Machine Learning Workflow
+
+### 1. Data Preprocessing
+
+The dataset is cleaned and prepared by:
+
+* removing unnecessary columns such as `customerID`
+* converting `TotalCharges` to numeric format
+* handling missing values
+* preparing the target variable (`Churn`) for model training
+
+### 2. Feature Engineering
+
+Additional features were created to improve model performance and business interpretation:
+
+* **tenure_group** → groups customers by retention duration
+* **service_count** → total number of telecom services used by a customer
+
+These engineered features help the model better understand **customer engagement patterns**.
+
+### 3. Model Training & Comparison
+
+The machine learning pipeline includes:
+
+* numeric preprocessing
+* categorical preprocessing
+* feature encoding
+* scaling
+* model fitting
+* multi-model comparison
+
+The project compares:
+
+* **Logistic Regression**
+* **Random Forest Classifier**
+* **XGBoost Classifier**
+
+The **best model is automatically selected based on ROC-AUC**.
+
+### 4. Model Evaluation
+
+The model is evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* ROC-AUC Score
+
+### 5. Model Deployment
+
+The trained model is integrated into a **Flask web app** for real-time churn prediction.
+
+---
+
+## Models Used
+
+### Compared Models
+
+* Logistic Regression
+* Random Forest Classifier
+* XGBoost Classifier
+
+### Why Multiple Models?
+
+Instead of using only one algorithm, this project compares multiple machine learning models and selects the best-performing one for churn prediction.
+
+This improves:
+
+* reliability
+* performance
+* model selection quality
+* business relevance
+
+---
+
+## Final Model Performance
+
+These are the current results from training:
+
+| Metric    |  Score |
+| --------- | -----: |
+| Accuracy  | 0.7332 |
+| Precision | 0.4989 |
+| Recall    | 0.7932 |
+| F1 Score  | 0.6125 |
+| ROC-AUC   | 0.8363 |
+
+### Best Model Selection
+
+> The final deployed model is selected automatically based on **ROC-AUC**.
+
+### Why These Metrics Matter
+
+For churn prediction, **accuracy alone is not enough**.
+
+* **Precision** tells how many predicted churners were actually churners
+* **Recall** tells how many real churners were correctly identified
+* **F1 Score** balances precision and recall
+* **ROC-AUC** measures overall discrimination ability
+
+### Interpretation of Results
+
+The model achieved a **strong ROC-AUC of 0.8363**, which indicates good class discrimination. However, recall is comparatively lower, meaning some actual churners are still missed.
+
+This makes the system useful for churn analysis, while also showing clear room for future improvement.
+
+---
+
+## Web Application Features
+
+The Flask application includes the following pages:
+
+### 1. Home Page
+
+* project introduction
+* business use-case explanation
+* customer data input form
+* navigation to dashboard and feature importance
+
+### 2. Prediction Result Page
+
+* predicted churn outcome
+* churn probability
+* customer risk level:
+
+  * Low Risk
+  * Medium Risk
+  * High Risk
+* business interpretation
+* retention recommendations
+
+### 3. Dashboard Page
+
+* EDA visualizations
+* best model selected
+* model performance metrics
+* evaluation charts
+
+### 4. Feature Importance Page
+
+* most important model features
+* business interpretation of churn drivers
+
+---
+
+## Dashboard Charts
+
+The dashboard includes:
+
+* Churn Distribution
+* Contract Type vs Churn
+* Tenure vs Churn
+* Monthly Charges vs Churn
+* Confusion Matrix
+* ROC Curve
+* Feature Importance Chart
+
+These charts help explain:
+
+* class imbalance
+* business behavior trends
+* model performance visually
+* feature-level churn influence
+
+---
+
+## Feature Importance
+
+The feature importance page helps explain **what factors most influence churn prediction**.
+
+Common important churn-related features often include:
+
+* contract type
+* tenure
+* monthly charges
+* total charges
+* internet service type
+* tech support
+* online security
+* payment method
+
+### Explainability Support
+
+This project supports feature importance for both:
+
+* **tree-based models** using built-in feature importance
+* **Logistic Regression** using absolute coefficient magnitude
+
+This makes the model more **interpretable and business-friendly**.
+
+---
+
+## Business Impact
+
+This system can help telecom businesses:
+
+* identify customers likely to leave
+* reduce churn-related revenue loss
+* improve retention campaign targeting
+* support better customer service strategy
+* make data-driven business decisions
+
+---
+
+## Why This Project Is Valuable
+
+This project is valuable because it demonstrates both:
+
+### Technical Skills
+
+* data cleaning
+* feature engineering
+* machine learning
+* model comparison
+* model evaluation
+* feature importance analysis
+* Flask deployment
+* project structuring
+
+### Business Skills
+
+* churn analysis
+* risk prediction
+* interpretability
+* retention strategy thinking
+* customer-focused ML deployment
+
+That makes it a strong **portfolio + resume + final year project**.
+
+---
+
+## Application Screenshots
+
+> Add your screenshots here after running the project.
+
+### Home Page
+
+![Home Page](static/images/home.png)
+
+### Prediction Result
+
+![Prediction Result](static/images/prediction_result.png)
+
+### Dashboard
+
+![Dashboard](static/images/dashboard.png)
+
+### Feature Importance
+
+![Feature Importance](static/images/feature_importance.png)
+
+---
+
+## Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/fahadrazzaqcsventures/telco-churn-ml-flask-app.git
+cd telco-churn-ml-flask-app
+```
+
+### 2. Create Virtual Environment
+
+#### Linux / macOS
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+#### Windows
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Add Dataset
+
+Place your dataset file here:
+
+```bash
+data/Telco-Customer-Churn.csv
+```
+
+### 5. Train the Models
+
+```bash
+python -m src.train
+```
+
+### 6. Generate Charts & Feature Importance
+
+```bash
+python -m src.plots
+```
+
+### 7. Run Flask App
+
+```bash
+python app.py
+```
+
+Then open:
+
+```bash
+http://127.0.0.1:5000
+```
+
+---
+
+## Example Usage
+
+A user enters customer information such as:
+
+* tenure
+* monthly charges
+* contract type
+* internet service
+* payment method
+* support subscriptions
+
+The application predicts:
+
+* whether the customer is likely to churn
+* churn probability percentage
+* churn risk level
+* recommended business action
+
+This can help telecom companies take early **retention actions**.
+
+---
+
+## Deployment
+
+This project is deployment-ready and can be hosted on:
+
+* Render
+* Railway
+* PythonAnywhere
+
+### Deployment Files Included
+
+* `requirements.txt`
+* `Procfile`
+* `runtime.txt`
+
+### Start Command
+
+```bash
+gunicorn app:app
+```
+
+---
+
+## Future Improvements
+
+Possible future enhancements include:
+
+* threshold tuning for recall improvement
+* SHAP / Explainable AI integration
+* REST API deployment
+* user authentication
+* downloadable prediction reports
+* Power BI / Tableau business dashboard
+* cloud deployment with CI/CD
+* Docker containerization
+
+---
+
+## Author
+
+**Your Name:** Fahad
+**Project Type:** Final Year Machine Learning Project
+**Domain:** Data Science / Machine Learning / Web Deployment
+
+### Connect
+
+* GitHub: [https://github.com/fahadrazzaqcsventures](https://github.com/fahadrazzaqcsventures)
+* LinkedIn: [https://www.linkedin.com/in/fahadcsventures/](https://www.linkedin.com/in/fahadcsventures/)
+
+---
+
+## License
+
+This project is for **educational and portfolio purposes**.
+
+You may modify and extend it for learning, academic, and personal use.

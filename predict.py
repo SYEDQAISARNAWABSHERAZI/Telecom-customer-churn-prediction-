@@ -1,0 +1,51 @@
+feature,importance
+num__tenure,1.0309662152584995
+cat__Contract_Two year,0.8405493401768926
+cat__Contract_Month-to-month,0.7150004281005483
+cat__InternetService_Fiber optic,0.6228700730172053
+cat__InternetService_DSL,0.5768590957701872
+num__MonthlyCharges,0.46933123723347425
+cat__tenure_group_1-2 years,0.3540005117481686
+num__TotalCharges,0.33603289745278336
+cat__PaperlessBilling_No,0.23584215090211408
+cat__OnlineSecurity_No,0.23413659711910556
+cat__MultipleLines_No,0.22784615376513853
+cat__tenure_group_2-4 years,0.2272511432059762
+cat__TechSupport_No,0.22477431188502872
+cat__OnlineSecurity_No internet service,0.21735327652171046
+cat__InternetService_No,0.21735327652171046
+cat__StreamingMovies_No internet service,0.21735327652171046
+cat__TechSupport_No internet service,0.21735327652171046
+cat__StreamingTV_No internet service,0.21735327652171046
+cat__DeviceProtection_No internet service,0.21735327652171046
+cat__OnlineBackup_No internet service,0.21735327652171046
+num__service_count,0.21279548542086946
+cat__tenure_group_4+ years,0.21228651176029936
+cat__Dependents_Yes,0.20638199396025955
+cat__PaymentMethod_Electronic check,0.20505940335024544
+cat__tenure_group_0-1 year,0.19762284391914522
+cat__OnlineSecurity_Yes,0.188125619872099
+cat__TechSupport_Yes,0.17876333463800329
+cat__StreamingTV_Yes,0.1786025856239498
+cat__StreamingMovies_Yes,0.1735174114241314
+cat__PaymentMethod_Bank transfer (automatic),0.17226230516195262
+cat__PhoneService_Yes,0.14820373789622815
+cat__StreamingTV_No,0.13259160837694678
+cat__StreamingMovies_No,0.12750643417710755
+cat__OnlineBackup_No,0.12288007480409677
+cat__PaymentMethod_Mailed check,0.10738632086803887
+cat__Partner_No,0.09691769827194875
+cat__PaymentMethod_Credit card (automatic),0.09675307659496692
+cat__gender_Female,0.09119930103991428
+cat__gender_Male,0.08014299823478853
+cat__MultipleLines_Yes,0.07964241586890565
+cat__OnlineBackup_Yes,0.07686909755708878
+cat__Partner_Yes,0.0744246010027444
+num__SeniorCitizen,0.06525671128026171
+cat__PaperlessBilling_Yes,0.06449985162742347
+cat__Contract_One year,0.04579338719835844
+cat__Dependents_No,0.03503969468555735
+cat__DeviceProtection_No,0.02439291662125119
+cat__PhoneService_No,0.02313856137846478
+cat__MultipleLines_No phone service,0.02313856137846478
+cat__DeviceProtection_Yes,0.021618060625759137
